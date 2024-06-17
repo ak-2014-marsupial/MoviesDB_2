@@ -1,0 +1,12 @@
+.app_green_theme {
+    --background: #134e4a;
+    --background-inverted:#F4FBFA ;
+    --text-primary: #ecfdf5;
+    --text-secondary: #010901;
+    --accent: #2dd4bf;
+    --accent-hover: #5eead4;
+    --border: #bef264;
+    --shadow: #86efac;
+    --star-primary: #e11d48;
+    --star-secondary: #ffe4e6;
+}

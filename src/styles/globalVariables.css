@@ -1,0 +1,13 @@
+:root {
+
+    /*size*/
+    --container-max-width:1500px;
+    --container-min-width:400px;
+    --header-height:10vh;
+    --header-min-height:50px;
+    --mobile-width:500px;
+
+    --burger-z-index:10;
+    --sidebar-width: 310px;
+    --sidebar-width-collapsed: 80px;
+}

@@ -1,0 +1,73 @@
+@import "styles/themes/dark.css";
+@import "styles/themes/green.css";
+@import "styles/themes/light.css";
+@import "styles/globalVariables.css";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+a{
+  text-decoration: none;
+  color:inherit;
+}
+
+div{
+  background-color: inherit;
+}
+
+
+
+
+/*:root {*/
+/*  --background: #0A174E;*/
+/*  --background-inverted: #ACC7B4 ;*/
+/*  --text-primary: #F5D042;*/
+/*  --text-secondary: #183605;*/
+/*  !*--accent: #E3F2C1;*!*/
+/*  --accent: #FFE8B8;*/
+/*  --accent-hover: #C9DBB2;*/
+/*  --border: #1f1e1e;*/
+/*  --shadow: #AAC8A7;*/
+/*  --star-primary: #D80032;*/
+/*  --star-secondary: #B0A695;*/
+/*}*/
+.app{
+  color: var(--text-primary);
+  background: var(--background);
+  max-width: var(--container-max-width);
+  min-width: var(--container-min-width);
+
+  height: 100vh;
+}
+
+.container{
+  /*height: calc(100vh - var(--header-height));*/
+  /*margin-top: var(--header-height);*/
+  height: 100%;
+  padding-top: var(--header-height);
+
+}
+
+@media(hover: hover){
+  button:hover {
+    box-shadow: 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover),  0 0 10px var(--accent-hover) ;
+    transform: scale(0.92);
+  }
+}
+
+@media (hover:none){
+  button:active {
+    box-shadow: 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover),  0 0 10px var(--accent-hover) ;
+    transform: scale(0.92);
+  }
+}

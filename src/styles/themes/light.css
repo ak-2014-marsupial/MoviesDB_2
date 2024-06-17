@@ -1,0 +1,12 @@
+.app_light_theme {
+    --background: #E3F2C1;
+    --background-inverted:#F3A950 ;
+    --text-primary: #0F2103;
+    --text-secondary: #183605;
+    --accent: #F6FFDE;
+    --accent-hover: #C9DBB2;
+    --border: #1f1e1e;
+    --shadow: #AAC8A7;
+    --star-primary: #D80032;
+    --star-secondary: #B0A695;
+}

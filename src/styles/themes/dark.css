@@ -1,0 +1,15 @@
+.app_dark_theme {
+    --background: #0A174E;
+    --background-inverted: #FAEBEF ;
+    --text-primary: #F5D042;
+    --text-secondary: #183605;
+    /*--accent: #E3F2C1;*/
+    --accent: #FFE8B8;
+    --accent-hover: #C9DBB2;
+    /*--border: #1f1e1e;*/
+    --border: #A2A2A1;
+    --shadow: #AAC8A7;
+    --star-primary: #D80032;
+    --star-secondary: #B0A695;
+
+}

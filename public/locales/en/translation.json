@@ -1,0 +1,19 @@
+{
+  "header": {
+    "movies": "Main",
+    "movieInfo": "Info",
+    "search": "Search"
+  },
+  "themeSwitcher": {
+    "theme": "Theme"
+  },
+  "errorPage": {
+    "sorry": "Sorry, an unexpected error has occurred.",
+    "oops": "Oops!"
+  },
+  "lang": "Language",
+  "user": "Dummy",
+  "noPage": {
+    "toMain": "go to Main page"
+  }
+}
