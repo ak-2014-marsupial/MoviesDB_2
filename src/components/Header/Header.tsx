@@ -20,7 +20,6 @@ const Header = () => {
             <div className={css.burger}>
                 <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen}/>
             </div>
-            <ThemeSwitcherDropDown/>
 
         </div>
     );

@@ -9,7 +9,9 @@
     box-shadow: 0 4px 4px -4px var(--text-primary);
     color: var(--text-primary);
     padding: 0.5em;
-    gap: 0.2em
+    gap: 0.2em;
+
+
 }
 
 .burger{

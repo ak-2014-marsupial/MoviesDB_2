@@ -1,0 +1,19 @@
+.movie_list{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5em;
+
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    background: #e65100;
+    width: 100%;
+    color:red
+}
