@@ -23,7 +23,6 @@ const Movie:FC<IProps> = ({movie}) => {
     const {backdrop_path, id, title, release_date, vote_average} = movie;
     const navigate = useNavigate();
     const imgPath = backdrop_path ? `${posterBaseUrl}${backdrop_path}` : '';
-    console.log(title);
     const getInfo = () => {
         navigate(`/movies/${id}`)
     }

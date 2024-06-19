@@ -3,13 +3,21 @@ import {useTranslation} from "react-i18next";
 
 import css from "./LangSwitcher.module.css"
 import {Button} from "../Button";
+import {useSearchParams} from "react-router-dom";
 
 const locales: Record<string, { title: string }> = {
-    en: {title: "En"},
-    uk: {title: "Укр"},
+    "en-US": {title: "En"},
+    "uk-UK": {title: "Укр"},
 }
 const LangSwitcher = () => {
-    const {i18n,t} = useTranslation();
+    const [_, setSearchParams] = useSearchParams();
+
+    const {i18n, t} = useTranslation();
+
+    const handleClick = (locale: string) => {
+        setSearchParams({"lang": locale})
+        i18n.changeLanguage(locale)
+    }
 
     return (
         <div className={css.dropdown}>
@@ -20,7 +28,7 @@ const LangSwitcher = () => {
                             className={css.langSwitcher}
                         // style={{fontWeight: i18n.resolvedLanguage === locale ? 'bold' : 'normal'}}
                             type="submit"
-                            onClick={() => i18n.changeLanguage(locale)}>
+                            onClick={() => handleClick(locale)}>
                         {locales[locale].title}
                     </Button>
                 ))

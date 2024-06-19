@@ -6,6 +6,7 @@ import {AsyncThunk} from "@reduxjs/toolkit";
 import {Movie} from "../Movie";
 import {PaginationComponent} from "../../pagination";
 import {useSearchParams} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 
 interface IProps {
@@ -28,8 +29,10 @@ const MovieList: FC<IProps> = ({cb}) => {
     const genreId = searchParams.get("genreId") || "";
     const search = searchParams.get("query") || "";
     const filter = searchParams.get("filter") || "";
-    const language = searchParams.get("lang") ;
+    const language = searchParams.get("lang")  ;
 
+    const {i18n} = useTranslation();
+    console.log(i18n.resolvedLanguage,language);
 
     useEffect(() => {
         const args: IArgs = {page: `${page}`, genreId, search, language, filter};
@@ -40,7 +43,6 @@ const MovieList: FC<IProps> = ({cb}) => {
         setSearchParams({page: `${page + 5}`})
     }
 
-    console.log(results);
     return (
         <div className={css.movie_list}>
             {results && results.map(movie => <Movie key={movie.id} movie={movie}/>)}
