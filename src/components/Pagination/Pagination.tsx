@@ -1,7 +1,6 @@
 import Pagination from 'rc-pagination';
 import React, {FC, useState} from 'react';
 
-import css from "./Pagination.module.css"
 import 'rc-pagination/assets/index.css';
 import enUSLocale from 'rc-pagination/lib/locale/en_US';
 import {useAppSelector} from "../../hooks/reduxHooks";
@@ -22,7 +21,7 @@ const PaginationComponent = () => {
 
 
     return (
-        <div className={css.pagination}>
+        // <div className={css.pagination}>
             <Pagination
                 className="pagination-data"
                 current={currentPage}
@@ -31,7 +30,7 @@ const PaginationComponent = () => {
                 onChange={handlePageChange}
                 locale={enUSLocale}
             />
-        </div>
+        // </div>
     );
 };
 

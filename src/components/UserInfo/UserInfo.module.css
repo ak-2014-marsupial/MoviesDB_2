@@ -2,7 +2,7 @@
     border: 1px solid var(--text-primary);
     border-radius: 0.5em;
     width: 60px;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     font-size: 0.7em;
     padding: 0.2em 0;
     display: flex;

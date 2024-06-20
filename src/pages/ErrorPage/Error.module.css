@@ -1,14 +1,17 @@
 .error {
-    margin-top: 15vh;
-    height: 50vh;
+    /*margin-top: calc( var(--header-height) + 5vh);*/
+    height: calc(100vh - var(--header-height) );
+    padding-top:  2vh;
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
+    border:1px solid red;
 }
 
 .error img {
     width: auto;
-    height: 100%;
+    height: 60vh;
     object-fit: cover;
     border-radius: 50%;
 
@@ -26,9 +29,17 @@
     /*left:-1em;*/
     /*right: -2em;*/
     color: var(--star-primary);
-
+    background: transparent;
     text-align: center;
 }
-h1{
+
+.error h3 {
+    position: absolute;
+    top: 65vh;
+    font-size: 2em;
+    /*left:-1em;*/
+    /*right: -2em;*/
+    color: var(--star-primary);
     background: transparent;
+    text-align: center;
 }

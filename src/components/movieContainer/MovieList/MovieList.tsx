@@ -24,7 +24,7 @@ export interface IArgs {
 }
 
 const MovieList: FC<IProps> = ({cb}) => {
-    const {results,isLoading,errors,page:currentPage,total_pages} = useAppSelector(state => state.movies);
+    const {results,isLoading,errors} = useAppSelector(state => state.movies);
     const dispatch = useAppDispatch();
     const initialSearchParams={
         page:"1",
@@ -33,7 +33,7 @@ const MovieList: FC<IProps> = ({cb}) => {
         filter:"",
         lang:"uk-UK"
     }
-    const [searchParams, setSearchParams] = useSearchParams(initialSearchParams);
+    const [searchParams] = useSearchParams(initialSearchParams);
     const queryString =searchParams.toString()
     const objSearchParams:Record<string, string> =useMemo(
         ()=>getObjFromQueryString(queryString),[queryString]
@@ -42,7 +42,6 @@ const MovieList: FC<IProps> = ({cb}) => {
 
     useEffect(() => {
         dispatch(cb({...objSearchParams}))
-        console.log("fetching", objSearchParams);
     }, [dispatch, cb, objSearchParams])
 
     if(isLoading) return <Loader/>
@@ -50,10 +49,16 @@ const MovieList: FC<IProps> = ({cb}) => {
 
 
     return (
+        <>
             <div className={css.movie_list}>
                 {results && results.map(movie => <Movie key={movie.id} movie={movie}/>)}
-                <PaginationComponent />
             </div>
+            <div className={css.footer}></div>
+            <div className={css.pagination}>
+                <PaginationComponent/>
+            </div>
+        </>
+
 
     );
 };

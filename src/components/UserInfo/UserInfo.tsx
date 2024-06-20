@@ -11,7 +11,7 @@ const UserInfo = () => {
             <div className={css.img_container}>
                 <img src={avatar} alt="avatar"/>
             </div>
-            <div className={css.user}>{t("user")}</div>
+            <div >{t("user")}</div>
         </div>
     );
 };
