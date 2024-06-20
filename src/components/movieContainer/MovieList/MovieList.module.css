@@ -9,7 +9,8 @@
 
 }
 .footer{
-    height: calc(var(--header-height) + 1vh);;
+    height: calc(var(--header-height) + 1vh);
+
 }
 
 .pagination {
@@ -21,4 +22,5 @@
 
     height: var(--header-height);
     width: 100%;
+    box-shadow:   0  -1px 0 0 var(--text-primary);
 }

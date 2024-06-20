@@ -1,6 +1,8 @@
 .Button {
-    border: none;
-    color: var(--text-primary);
+    /*border: none;*/
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    background-color: var(--background-inverted);
     border-radius: 0.4em;
     min-width: 10%;
     text-align: center;
