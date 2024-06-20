@@ -1,7 +1,7 @@
 import {createHashRouter, Navigate} from "react-router-dom";
 import {MainLayout} from "../../layouts/MainLayout";
 import React from "react";
-import {MovieInfoPage, MoviesPage} from "../../pages";
+import {MovieInfoPage} from "../../pages";
 import {MovieList} from "../../components/movieContainer";
 import {movieActions} from "../../redux/slices";
 

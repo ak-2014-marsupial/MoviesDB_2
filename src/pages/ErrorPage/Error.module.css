@@ -1,0 +1,34 @@
+.error {
+    margin-top: 15vh;
+    height: 50vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.error img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+
+    border: 1px solid var(--border);
+    background-color: var(--accent);
+    box-shadow: var(--shadow);
+    transition: all ease 500ms;
+
+}
+
+.error h1 {
+    position: absolute;
+    top: 25vh;
+    font-size: 5em;
+    /*left:-1em;*/
+    /*right: -2em;*/
+    color: var(--star-primary);
+
+    text-align: center;
+}
+h1{
+    background: transparent;
+}

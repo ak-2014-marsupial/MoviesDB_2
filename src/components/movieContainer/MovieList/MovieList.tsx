@@ -1,12 +1,14 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useMemo} from 'react';
 import css from "./MovieList.module.css"
 import {IMovie, IPagination} from "../../../interfaces";
 import {useAppDispatch, useAppSelector} from "../../../hooks/reduxHooks";
 import {AsyncThunk} from "@reduxjs/toolkit";
 import {Movie} from "../Movie";
-import {PaginationComponent} from "../../pagination";
 import {useSearchParams} from "react-router-dom";
-import {useTranslation} from "react-i18next";
+import {Loader} from "../../Loader";
+import {ErrorPage} from "../../../pages";
+import {PaginationComponent} from "../../Pagination";
+import {getObjFromQueryString} from "../../../utils/getSearchParamsAsObject";
 
 
 interface IProps {
@@ -22,35 +24,37 @@ export interface IArgs {
 }
 
 const MovieList: FC<IProps> = ({cb}) => {
-    const {results, total_pages} = useAppSelector(state => state.movies);
+    const {results,isLoading,errors,page:currentPage,total_pages} = useAppSelector(state => state.movies);
     const dispatch = useAppDispatch();
-    const [searchParams, setSearchParams] = useSearchParams({page:'1',lang:"uk-UK"});
-    const page = searchParams.get("page") ;
-    const genreId = searchParams.get("genreId") || "";
-    const search = searchParams.get("query") || "";
-    const filter = searchParams.get("filter") || "";
-    const language = searchParams.get("lang")  ;
+    const initialSearchParams={
+        page:"1",
+        genreId:"",
+        query:"",
+        filter:"",
+        lang:"uk-UK"
+    }
+    const [searchParams, setSearchParams] = useSearchParams(initialSearchParams);
+    const queryString =searchParams.toString()
+    const objSearchParams:Record<string, string> =useMemo(
+        ()=>getObjFromQueryString(queryString),[queryString]
+    )
 
-    const {i18n} = useTranslation();
-    console.log(i18n.resolvedLanguage,language);
 
     useEffect(() => {
-        const args: IArgs = {page: `${page}`, genreId, search, language, filter};
-        dispatch(cb({...args}))
-    }, [dispatch, cb, page, language, search, filter, genreId])
+        dispatch(cb({...objSearchParams}))
+        console.log("fetching", objSearchParams);
+    }, [dispatch, cb, objSearchParams])
 
-    const handleClick = () => {
-        setSearchParams({page: `${page + 5}`})
-    }
+    if(isLoading) return <Loader/>
+    if (errors) return <ErrorPage/>;
+
 
     return (
-        <div className={css.movie_list}>
-            {results && results.map(movie => <Movie key={movie.id} movie={movie}/>)}
-            {total_pages > 1 && <PaginationComponent/>}
-            {/*<PaginationComponent/>*/}
+            <div className={css.movie_list}>
+                {results && results.map(movie => <Movie key={movie.id} movie={movie}/>)}
+                <PaginationComponent />
+            </div>
 
-            <button onClick={handleClick}>setSearchParams</button>
-        </div>
     );
 };
 

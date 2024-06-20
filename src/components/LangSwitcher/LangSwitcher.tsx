@@ -3,19 +3,20 @@ import {useTranslation} from "react-i18next";
 
 import css from "./LangSwitcher.module.css"
 import {Button} from "../Button";
-import {useSearchParams} from "react-router-dom";
+import {useAppMergeParamsWithSearchParams} from "../../hooks/useAppMergeParamsWithSearchParams";
+
 
 const locales: Record<string, { title: string }> = {
     "en-US": {title: "En"},
     "uk-UK": {title: "Укр"},
 }
 const LangSwitcher = () => {
-    const [_, setSearchParams] = useSearchParams();
+    const {mergeParamsWithSearchParams} = useAppMergeParamsWithSearchParams();
 
     const {i18n, t} = useTranslation();
 
     const handleClick = (locale: string) => {
-        setSearchParams({"lang": locale})
+        mergeParamsWithSearchParams({"lang": locale})
         i18n.changeLanguage(locale)
     }
 

@@ -4,7 +4,6 @@ import {NavBar} from "../NavBar";
 import {ThemeSwitcher} from "../ThemeSwitcher";
 import {LangSwitcher} from "../LangSwitcher";
 import {BurgerMenu} from "../BurgerMenu";
-import {ThemeSwitcherDropDown} from "../ThemeSwitcherDropDown";
 import {UserInfo} from "../UserInfo/UserInfo";
 
 
