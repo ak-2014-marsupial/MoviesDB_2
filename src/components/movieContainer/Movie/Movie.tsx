@@ -20,7 +20,7 @@ const Movie: FC<IProps> = ({movie}) => {
     const navigate = useNavigate();
     const imgPath = backdrop_path ? `${posterBaseUrl}${backdrop_path}` : '';
     const getInfo = () => {
-        navigate(`/movies/${id}`)
+        navigate(`/movies/${id}`,{state:movie})
     }
     return (
         <div className={css.movie} onClick={getInfo}>

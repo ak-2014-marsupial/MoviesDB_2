@@ -1,5 +1,6 @@
 import React from 'react';
 import {useTranslation} from "react-i18next";
+import {MovieInfo} from "../components/movieContainer/MovieInfo";
 
 
 const MovieInfoPage = () => {
@@ -9,6 +10,7 @@ const MovieInfoPage = () => {
     return (
         <div>
             <h1>{t("header.movieInfo")}</h1>
+            <MovieInfo/>
 
 
         </div>
