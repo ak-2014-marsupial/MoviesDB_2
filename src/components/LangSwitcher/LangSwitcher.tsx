@@ -4,6 +4,8 @@ import {useTranslation} from "react-i18next";
 import css from "./LangSwitcher.module.css"
 import {Button} from "../Button";
 import {useAppMergeParamsWithSearchParams} from "../../hooks/useAppMergeParamsWithSearchParams";
+import {initLocale} from "../../constants/appConstants";
+import {LOCAL_STORAGE_LOCALE_KEY} from "../../constants";
 
 
 const locales: Record<string, { value: string, title: string, next: string }> = {
@@ -14,9 +16,9 @@ const locales: Record<string, { value: string, title: string, next: string }> = 
 
 const LangSwitcher = () => {
     const {mergeParamsWithSearchParams} = useAppMergeParamsWithSearchParams();
-    const initLocale = localStorage.getItem("locale") || "uk-UK";
+    // const initLocale = localStorage.getItem("locale") || "uk-UK";
     const [locale, setLocale] = useState(initLocale);
-    const {i18n, t} = useTranslation();
+    const {i18n} = useTranslation();
 
     if (i18n.resolvedLanguage !== locale) {
         i18n.changeLanguage(locale);
@@ -27,6 +29,7 @@ const LangSwitcher = () => {
         mergeParamsWithSearchParams({"language": nextLocale})
         i18n.changeLanguage(nextLocale);
         setLocale(nextLocale);
+        localStorage.setItem(LOCAL_STORAGE_LOCALE_KEY,nextLocale)
     }
 
     return (

@@ -9,6 +9,7 @@ import {Loader} from "../../Loader";
 import {ErrorPage} from "../../../pages";
 import {PaginationComponent} from "../../Pagination";
 import {getObjFromQueryString} from "../../../utils/getSearchParamsAsObject";
+import {initLocale} from "../../../constants/appConstants";
 
 
 interface IProps {
@@ -27,10 +28,9 @@ const MovieList: FC<IProps> = ({cb}) => {
     const dispatch = useAppDispatch();
     const initialSearchParams = {
         page: "1",
-        genreId: "",
         query: "",
         filter: "",
-        lang: "uk-UK"
+        lang: initLocale
     }
     const [searchParams] = useSearchParams(initialSearchParams);
     const queryString = searchParams.toString()
