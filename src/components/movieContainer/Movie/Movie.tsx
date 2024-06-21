@@ -37,10 +37,10 @@ const Movie: FC<IProps> = ({movie}) => {
                                  starSpacing='1px'
                                  rating={vote_average}
                     />
+                    <div className={css.title}> {title}</div>
                 </div>
 
 
-                <div className={css.title}> {title}</div>
                 {release_date && <div className={css.date}>{new Date(release_date).getFullYear()}</div>}
             </div>
         </div>

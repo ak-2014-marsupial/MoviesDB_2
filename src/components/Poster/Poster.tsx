@@ -19,7 +19,7 @@ const Poster: FC<IProps> = ({path, title}) => {
     return (
         <div className={css.poster}>
             <img src={`${posterBaseUrl}${path}`} alt={title} onError={handleImgError}/>
-        </div>
+         </div>
     );
 };
 

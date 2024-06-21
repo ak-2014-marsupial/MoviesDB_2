@@ -27,7 +27,6 @@ const NavBar: FC<IProps> = ({children,isOpen}) => {
             </li>
         )
     }
-    console.log(isOpen);
 
     return (
         <div className={isOpen? [css.navBar,css.nav_active].join(" "):css.navBar}>

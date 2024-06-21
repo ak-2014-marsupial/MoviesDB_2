@@ -1,48 +1,44 @@
 .movie {
-    height: var(--movie-card-height);
-    width: calc(20% - 2px - 0.5em);
-    min-width: var(--movie-card-min-width);
-    margin: 0.5em;
+    border-radius: var(--radius);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-
-
-
-    box-shadow: var(--shadow);
-    transition: all ease 500ms;
+    background-color:var(--accent);
+    /*box-shadow: var(--shadow);*/
+    /*transition: all ease 500ms;*/
 }
 
-.movie:hover {
-    height: calc(var(--movie-card-height) - 10px);
-    /*box-shadow: 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover);*/
-    box-shadow: 0 0 1em var(--accent-hover), 0 0 1em var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 1em var(--accent-hover), 0 0 1em var(--accent-hover);
-}
+/*.movie:hover {*/
+/*    height: calc(var(--movie-card-height) - 5px);*/
+/*    box-shadow: 0 0 1em var(--accent-hover), 0 0 1em var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 1em var(--accent-hover), 0 0 1em var(--accent-hover);*/
+/*}*/
 
 .img_container {
-    height: 70%;
+    /*height: 70%;*/
+    height: calc(var(--movie-card-height) * 0.6);
     border-radius: var(--radius) var(--radius) 0 0;
-
 }
 
 .content {
     padding: 0.2em;
-    height: 30%;
+    /*height: 30%;*/
+    height: calc(var(--movie-card-height) * 0.4 - 0.2em);
     width: 100%;
     color: var(--text-secondary);
-    background: var(--accent-hover);
     border-radius: 0 0 var(--radius) var(--radius);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .rating {
     text-align: center;
     margin: 0.2em;
-    color:red;
+    /*color:red;*/
     /*background:var(--accent-hover);*/
-    /*background-color:var(--accent-hover);*/
+
 
 }
 

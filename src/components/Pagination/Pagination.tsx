@@ -8,7 +8,7 @@ import {useAppMergeParamsWithSearchParams} from "../../hooks/useAppMergeParamsWi
 
 
 const PaginationComponent = () => {
-    const {page = 1, total_pages} = useAppSelector(state => state.movies);
+    const {page = 1, total_pages} = useAppSelector(state => state.movies.movieList);
     const [currentPage, setCurrentPage] = useState<number>(page);
 
     const {mergeParamsWithSearchParams} = useAppMergeParamsWithSearchParams();

@@ -24,7 +24,7 @@ const LangSwitcher = () => {
 
     const handleClick = () => {
         const nextLocale=locales[locale].next;
-        mergeParamsWithSearchParams({"lang": nextLocale})
+        mergeParamsWithSearchParams({"language": nextLocale})
         i18n.changeLanguage(nextLocale);
         setLocale(nextLocale);
     }

@@ -4,68 +4,104 @@ import {AxiosError} from "axios";
 import {movieService} from "../../services/movieService";
 import {IArgs} from "../../components/movieContainer";
 
-interface IState extends IPagination<IMovie> {
+// interface IState extends IPagination<IMovie> {
+//     errors: boolean,
+//     isLoading: boolean
+// }
+//
+// const initialState: IState = {
+//     page: 1,
+//     results: [],
+//     total_pages: 0,
+//     total_results: 0,
+//     errors: false,
+//     isLoading: false
+// }
+
+interface IState {
+    singleMovie: IMovie | null,
+    movieList: IPagination<IMovie>
+    isLoading: boolean,
     errors: boolean,
-    isLoading: boolean
 }
 
 const initialState: IState = {
-    page: 1,
-    results: [],
-    total_pages: 0,
+    singleMovie: null,
+    movieList: {
+        page: 1,
+        results: [],
+        total_pages: 0,
+        total_results: 0,
+    },
     errors: false,
-    isLoading: false,
-    total_results:0
+    isLoading: false
 }
-// interface IArgs {
-//     page: string,
-//     genreId?: string,
-//     search?: string,
-//     filter?: string,
-//     language?: string
-// }
 
-const getAll:AsyncThunk<IPagination<IMovie>, IArgs, any> =
+
+
+const getAll: AsyncThunk<IPagination<IMovie>, IArgs, any> =
     createAsyncThunk<IPagination<IMovie>, IArgs>(
-    "movieSlice/getAll",
-    async (args, {rejectWithValue}) => {
-        const {page,language="uk-UK"}=args
-        try {
-            const {data} = await movieService.getAll(page,language);
-            return data;
-        } catch (e) {
-            const err = e as AxiosError;
-            return rejectWithValue(err.response.data)
+        "movieSlice/getAll",
+        async (args, {rejectWithValue}) => {
+            const {page, language = "uk-UK"} = args
+            try {
+                const {data} = await movieService.getAll(page, language);
+                return data;
+            } catch (e) {
+                const err = e as AxiosError;
+                return rejectWithValue(err.response.data)
+            }
         }
-    }
-)
+    )
 
-const searchByName = createAsyncThunk<IPagination<IMovie>, { page: string, query: string }>(
-    "movieSlice/searchByName",
-    async ({page, query}, {rejectWithValue}) => {
-        try {
-            const {data} = await movieService.searchByName(page, query);
-            return data;
-        } catch (e) {
-            const err = e as AxiosError;
-            return rejectWithValue(err.response.data)
+
+const getById: AsyncThunk<IMovie, { id: string, args: IArgs }, any> =
+    createAsyncThunk<IMovie, { id: string, args: IArgs }>(
+        "movieSlice/getById",
+        async ({id, args}, {rejectWithValue}) => {
+            const {language = "uk-UK"} = args;
+            try {
+                const {data} = await movieService.getById(id, language);
+                return data;
+            } catch (e) {
+                const err = e as AxiosError;
+                return rejectWithValue(err.response.data)
+            }
         }
-    }
-)
+    )
 
-const getAllByGenreId = createAsyncThunk<IPagination<IMovie>, { page: string, genreId: string }>(
-    "movieSlice/getAllByGenreId",
-    async ({page, genreId}, {rejectWithValue}) => {
-        try {
-            const {data} = await movieService.getByGenreId(page, genreId);
-            return data;
-        } catch (e) {
-            const err = e as AxiosError;
-            return rejectWithValue(err.response.data)
+
+const searchByName: AsyncThunk<IPagination<IMovie>, IArgs, any> =
+    createAsyncThunk<IPagination<IMovie>, IArgs>(
+        "movieSlice/searchByName",
+        async (args, {rejectWithValue}) => {
+            const {page, language = "uk-UK", query} = args
+            try {
+                const {data} = await movieService.searchByName(page, query, language);
+                return data;
+            } catch (e) {
+                const err = e as AxiosError;
+                return rejectWithValue(err.response.data)
+            }
         }
+    )
 
-    }
-)
+const getAllByGenreId: AsyncThunk<IPagination<IMovie>, { genreId: string, args: IArgs }, any> =
+    createAsyncThunk<IPagination<IMovie>,  { genreId: string, args: IArgs }>(
+        "movieSlice/getAllByGenreId",
+        async ({genreId,args}, {rejectWithValue}) => {
+            const {page, language = "uk-UK"} = args;
+
+            try {
+                const {data} = await movieService.getByGenreId(page, genreId);
+                return data;
+            } catch (e) {
+                const err = e as AxiosError;
+                return rejectWithValue(err.response.data)
+            }
+
+        }
+    )
 
 
 const movieSlice = createSlice(
@@ -75,19 +111,23 @@ const movieSlice = createSlice(
         reducers: {},
         extraReducers: builder =>
             builder
+                .addCase(getById.fulfilled, (state, action) => {
+                    state.singleMovie = action.payload
+                    state.isLoading = false
+                })
                 .addMatcher(isFulfilled(getAll, getAllByGenreId, searchByName), (state, action) => {
                     const {total_pages, results, page, total_results} = action.payload;
-                    state.results = results;
-                    state.total_pages = total_pages;
-                    state.page = page;
-                    state.total_results = total_results;
+                    state.movieList.results = results;
+                    state.movieList.total_pages = total_pages;
+                    state.movieList.page = page;
+                    state.movieList.total_results = total_results;
                     state.isLoading = false;
                     state.errors = false;
                 })
-                .addMatcher(isPending(getAll, getAllByGenreId, searchByName), (state) => {
+                .addMatcher(isPending(getById, getAll, getAllByGenreId, searchByName), (state) => {
                     state.isLoading = true;
                 })
-                .addMatcher(isRejected(getAll, getAllByGenreId, searchByName), (state) => {
+                .addMatcher(isRejected(getById, getAll, getAllByGenreId, searchByName), (state) => {
                     state.isLoading = false;
                     state.errors = true;
 

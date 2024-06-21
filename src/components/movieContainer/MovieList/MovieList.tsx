@@ -17,41 +17,44 @@ interface IProps {
 
 export interface IArgs {
     page: string,
-    genreId?: string,
-    search?: string,
+    query?: string,
     filter?: string,
-    language?: string
+    language?: string,
 }
 
 const MovieList: FC<IProps> = ({cb}) => {
-    const {results,isLoading,errors} = useAppSelector(state => state.movies);
+    const {movieList:{results}, isLoading, errors} = useAppSelector(state => state.movies);
     const dispatch = useAppDispatch();
-    const initialSearchParams={
-        page:"1",
-        genreId:"",
-        query:"",
-        filter:"",
-        lang:"uk-UK"
+    const initialSearchParams = {
+        page: "1",
+        genreId: "",
+        query: "",
+        filter: "",
+        lang: "uk-UK"
     }
     const [searchParams] = useSearchParams(initialSearchParams);
-    const queryString =searchParams.toString()
-    const objSearchParams:Record<string, string> =useMemo(
-        ()=>getObjFromQueryString(queryString),[queryString]
-    )
+    const queryString = searchParams.toString()
 
+    const objSearchParams: Record<string, string> = useMemo(
+        () => getObjFromQueryString(queryString), [queryString]
+    )
 
     useEffect(() => {
         dispatch(cb({...objSearchParams}))
     }, [dispatch, cb, objSearchParams])
 
-    if(isLoading) return <Loader/>
+    if (isLoading) return <Loader/>
     if (errors) return <ErrorPage/>;
 
 
     return (
         <>
             <div className={css.movie_list}>
-                {results && results.map(movie => <Movie key={movie.id} movie={movie}/>)}
+                {results && results.map(movie =>
+                    <div key={movie.id} className={css.movie_container}>
+                        <Movie  movie={movie}/>
+                    </div>
+                )}
             </div>
             <div className={css.footer}></div>
             <div className={css.pagination}>

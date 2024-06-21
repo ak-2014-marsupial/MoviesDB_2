@@ -24,3 +24,21 @@
     width: 100%;
     box-shadow:   0  -1px 0 0 var(--text-primary);
 }
+
+.movie_container{
+    height: var(--movie-card-height);
+    width: calc(20% - 2px - 0.5em);
+    min-width: var(--movie-card-min-width);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin: 0.5em;
+    /*box-shadow: var(--shadow);*/
+    transition: all ease 500ms;
+}
+
+.movie_container:hover{
+
+    height: calc(var(--movie-card-height) - 10px);
+    box-shadow: 0 0 1em var(--accent-hover), 0 0 1em var(--accent-hover), 0 0 5px var(--accent-hover), 0 0 1em var(--accent-hover), 0 0 1em var(--accent-hover);
+}
+
