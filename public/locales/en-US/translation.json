@@ -1,7 +1,7 @@
 {
   "header": {
-    "movies": "Main",
-    "movieInfo": "Info",
+    "movies": "Movies",
+    "genres": "Genres",
     "search": "Search"
   },
   "themeSwitcher": {

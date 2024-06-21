@@ -1,0 +1,12 @@
+.genres{
+    display: flex;
+    font-size: 1.5em;
+    padding: 1.6em;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    justify-content: center;
+}
+
+single_genre{
+    flex-grow: 2;
+}

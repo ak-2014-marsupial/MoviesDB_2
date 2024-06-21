@@ -1,8 +1,8 @@
 {
 
   "header": {
-    "movies": "Головна",
-    "movieInfo": "Про нас",
+    "movies": "Фільми",
+    "genres": "Жанри",
     "search": "Пошук"
   },
   "themeSwitcher":{

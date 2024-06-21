@@ -86,11 +86,11 @@ const searchByName: AsyncThunk<IPagination<IMovie>, IArgs, any> =
         }
     )
 
-const getAllByGenreId: AsyncThunk<IPagination<IMovie>, { genreId: string, args: IArgs }, any> =
-    createAsyncThunk<IPagination<IMovie>,  { genreId: string, args: IArgs }>(
+const getAllByGenreId: AsyncThunk<IPagination<IMovie>,  IArgs , any> =
+    createAsyncThunk<IPagination<IMovie>,   IArgs >(
         "movieSlice/getAllByGenreId",
-        async ({genreId,args}, {rejectWithValue}) => {
-            const {page, language = "uk-UK"} = args;
+        async (args, {rejectWithValue}) => {
+            const {page, language = "uk-UK",genreId} = args;
 
             try {
                 const {data} = await movieService.getByGenreId(page, genreId);

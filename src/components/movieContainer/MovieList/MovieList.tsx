@@ -20,6 +20,7 @@ export interface IArgs {
     page: string,
     query?: string,
     filter?: string,
+    genreId?:string,
     language?: string,
 }
 
@@ -30,6 +31,7 @@ const MovieList: FC<IProps> = ({cb}) => {
         page: "1",
         query: "",
         filter: "",
+        genreId:"",
         lang: initLocale
     }
     const [searchParams] = useSearchParams(initialSearchParams);

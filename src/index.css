@@ -12,6 +12,9 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+body{
+    background-color: var(--background);
 
 }
 
@@ -30,15 +33,13 @@ div {
     background: var(--background);
     max-width: var(--container-max-width);
     min-width: var(--container-min-width);
-
-    /*height: 100vh;*/
-    height: 100%;
+margin: 0 auto;
+    height: 100vh;
+    /*height: 100%;*/
 }
 
 .container {
-    /*height: calc(100vh - var(--header-height));*/
-    /*margin-top: var(--header-height);*/
-    min-height: 100%;
+    height: calc(100vh - var(--header-height));
     padding-top: calc(var(--header-height) + 1vh);
 
 }

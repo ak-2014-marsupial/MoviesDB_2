@@ -1,17 +1,27 @@
 .movie_info {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+
+    padding-top: 1em;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .poster_container {
     width: 300px;
+    max-width: 350px;
 }
 
 .content_container {
-
+    padding: 0.5em;
+    flex-grow: 2;
+    width: 50%;
 }
 
 .title{
-    font-size: 1em;
+    font-size: 1.6em;
     font-weight: bold;
     text-align: center;
     margin-bottom: 0.2em;
@@ -21,6 +31,10 @@
     margin: 0.2em;
 }
 .date {
+    font-size: 1.5em;
     text-align: end;
     margin: 0.2em;
+}
+.overview{
+    font-size: 1.4em;
 }

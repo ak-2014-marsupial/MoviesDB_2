@@ -4,6 +4,7 @@ import React from "react";
 import {MovieInfoPage} from "../../pages";
 import {MovieList} from "../../components/movieContainer";
 import {movieActions} from "../../redux/slices";
+import {GenresPage} from "../../pages/GenresPage";
 
 const router = createHashRouter([
     {
@@ -11,7 +12,9 @@ const router = createHashRouter([
             {index: true, element: <Navigate to={'movies'}/>},
             {path: "movies", element: <MovieList cb={movieActions.getAll}/>},
             {path: "movies/:id", element: <MovieInfoPage/>},
-            {path: "movies/:genreId", element: <MovieList cb={movieActions.getAllByGenreId}/>},
+            {path: "genres/:genreId", element: <MovieList cb={movieActions.getAllByGenreId}/>},
+            // {path: "genres/:genreId", element: <MovieList cb={movieActions.getAll}/>},
+            {path: "genres", element: <GenresPage/>},
 
             {path: "*", element: <div>NoPage</div>}
         ]
@@ -22,5 +25,5 @@ export {router};
 
 export const navBarLinks = [
     {title: "header.movies", goTo: "/movies"},
-    {title: "header.movieInfo", goTo: "/movies/12"}
+    {title: "header.genres", goTo: "/genres"}
 ]
