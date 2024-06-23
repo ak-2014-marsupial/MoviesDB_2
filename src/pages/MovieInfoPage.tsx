@@ -6,10 +6,10 @@ const MovieInfoPage = () => {
 
 
     return (
-        <div>
+        <>
             <MovieInfo/>
 
-        </div>
+        </>
     );
 };
 

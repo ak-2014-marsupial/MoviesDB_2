@@ -1,45 +1,48 @@
-import React, {FC, useEffect, useMemo} from 'react';
+import React, {FC, useEffect, useMemo, useState} from 'react';
 import css from "./MovieList.module.css"
 import {IMovie, IPagination} from "../../../interfaces";
 import {useAppDispatch, useAppSelector} from "../../../hooks/reduxHooks";
 import {AsyncThunk} from "@reduxjs/toolkit";
 import {Movie} from "../Movie";
-import {useSearchParams} from "react-router-dom";
+import {useLocation, useSearchParams} from "react-router-dom";
 import {Loader} from "../../Loader";
 import {ErrorPage} from "../../../pages";
 import {PaginationComponent} from "../../Pagination";
 import {getObjFromQueryString} from "../../../utils/getSearchParamsAsObject";
-import {initLocale} from "../../../constants/appConstants";
-
+import {initialSearchParams} from "../../../constants/appConstants";
 
 interface IProps {
     cb: AsyncThunk<IPagination<IMovie>, any, any>
 }
 
 export interface IArgs {
-    page: string,
+    page?: string,
     query?: string,
     filter?: string,
-    genreId?:string,
+    with_genres?: string,
     language?: string,
 }
 
 const MovieList: FC<IProps> = ({cb}) => {
-    const {movieList:{results}, isLoading, errors} = useAppSelector(state => state.movies);
+    const {movieList: {results}, isLoading, errors} = useAppSelector(state => state.movies);
     const dispatch = useAppDispatch();
-    const initialSearchParams = {
-        page: "1",
-        query: "",
-        filter: "",
-        genreId:"",
-        lang: initLocale
-    }
+    const {state} = useLocation();
+
+    const [info, setInfo] = useState<string>("")
+
     const [searchParams] = useSearchParams(initialSearchParams);
     const queryString = searchParams.toString()
 
     const objSearchParams: Record<string, string> = useMemo(
         () => getObjFromQueryString(queryString), [queryString]
     )
+    useEffect(() => {
+        if(state){
+            setInfo(state["display_info"])
+        }
+
+    }, [state]);
+
 
     useEffect(() => {
         dispatch(cb({...objSearchParams}))
@@ -48,17 +51,20 @@ const MovieList: FC<IProps> = ({cb}) => {
     if (isLoading) return <Loader/>
     if (errors) return <ErrorPage/>;
 
-
+    console.log("MovieList>>>>");
     return (
         <>
+             <h1>{info}</h1>
             <div className={css.movie_list}>
                 {results && results.map(movie =>
                     <div key={movie.id} className={css.movie_container}>
-                        <Movie  movie={movie}/>
+                        <Movie movie={movie}/>
                     </div>
                 )}
             </div>
-            <div className={css.footer}></div>
+            <div className={css.footer}>
+
+            </div>
             <div className={css.pagination}>
                 <PaginationComponent/>
             </div>

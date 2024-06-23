@@ -1,0 +1,23 @@
+.wrap_image{
+    height: 30vh;
+    border: 1px solid var(--accent);
+    border-radius: 1em;
+    box-shadow: var(--shadow);
+}
+.wrap_image img{
+    border-radius: 1em ;
+}
+
+.title {
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    margin: 0.5em 0;
+    color: var(--text-primary);
+}
+
+/*.img{*/
+/*    background-image:url("https://image.tmdb.org/t/p/w500/rwmvRonpluV6dCPiQissYrchvSD.jpg") ;*/
+/*    height: 10vh;*/
+/*    width: 10vw;*/
+/*}*/

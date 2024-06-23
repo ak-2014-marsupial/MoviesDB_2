@@ -4,20 +4,6 @@ import {AxiosError} from "axios";
 import {movieService} from "../../services/movieService";
 import {IArgs} from "../../components/movieContainer";
 
-// interface IState extends IPagination<IMovie> {
-//     errors: boolean,
-//     isLoading: boolean
-// }
-//
-// const initialState: IState = {
-//     page: 1,
-//     results: [],
-//     total_pages: 0,
-//     total_results: 0,
-//     errors: false,
-//     isLoading: false
-// }
-
 interface IState {
     singleMovie: IMovie | null,
     movieList: IPagination<IMovie>
@@ -90,10 +76,10 @@ const getAllByGenreId: AsyncThunk<IPagination<IMovie>,  IArgs , any> =
     createAsyncThunk<IPagination<IMovie>,   IArgs >(
         "movieSlice/getAllByGenreId",
         async (args, {rejectWithValue}) => {
-            const {page, language = "uk-UK",genreId} = args;
+            const {page="1", language = "uk-UK",with_genres} = args;
 
             try {
-                const {data} = await movieService.getByGenreId(page, genreId);
+                const {data} = await movieService.getByGenreId(page, with_genres,language);
                 return data;
             } catch (e) {
                 const err = e as AxiosError;

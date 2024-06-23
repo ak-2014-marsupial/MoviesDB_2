@@ -1,36 +1,25 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import css from "./Cenres.module.css"
-import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
-import {genreActions} from "../../redux/slices";
 import {Button} from "../Button";
-import {useNavigate} from "react-router-dom";
-import {useAppMergeParamsWithSearchParams} from "../../hooks/useAppMergeParamsWithSearchParams";
+import {useAppGenres} from "../../hooks/useAppGenres";
+import {useAppNavigateWithNewParams} from "../../hooks/useAppNavigateWithNewParams";
+import {IGenre} from "../../interfaces";
 
-const Genres = () => {
-    const dispatch = useAppDispatch();
-    const navigate = useNavigate();
-    const {genreList} = useAppSelector(state => state.genre);
+const Genres= () => {
 
-    const {mergeParamsWithSearchParams} = useAppMergeParamsWithSearchParams();
+    const { genreList:sourceData} = useAppGenres();
+    const {navigateWithParams}=useAppNavigateWithNewParams()
 
-    useEffect(() => {
-        dispatch(genreActions.getAll());
-    }, [])
-
-    const handleClick=(genreId:string)=>{
-        console.log(genreId);
-
-        navigate(genreId);
-        mergeParamsWithSearchParams({genreId})
-        // navigate(`/genres/${genreId}`)
+    const handleClick=(genre:IGenre)=>{
+        navigateWithParams(`${genre.id}`,{ "width_genre": `${genre.id}` },{state:{"display_info":`${genre.name}`}})
     }
     return (
         <div className={css.genres}>
-            {genreList && genreList?.map(genre =>
+            {sourceData && sourceData?.map(genre =>
                 <Button
                     key={genre.id}
-                    onClick={()=>handleClick(`${genre.id}`) }
+                    onClick={()=>handleClick(genre)}
                     className={css.single_genre}
                 >
                     {genre.name}

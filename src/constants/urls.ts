@@ -11,12 +11,13 @@ const urls = {
         base: `discover${movie}`,
         search: `/search${movie}`,
         details: (id: string): string => `${movie}/${id}`,
-        byGenreId: (genreId: string): string => `/genre/${genreId}/movies`,
+        actors: (id: string) => `${movie}/${id}/credits`
     },
     genre: {
         base: `${genre}/list`,
-    },
+    }
 }
+
 
 export {
     baseURL,

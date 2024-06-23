@@ -15,5 +15,8 @@
   "user": "Dummy",
   "noPage": {
     "toMain": "go to Main page"
+  },
+  "actorlist": {
+    "title": "Actor List"
   }
 }

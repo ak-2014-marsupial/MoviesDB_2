@@ -4,7 +4,7 @@ import {IGenre} from "../interfaces";
 import {IRes} from "../types";
 
 const genreService = {
-    getAll: ():IRes<{genres: IGenre[] }> => axiosService.get(urls.genre.base)
+    getAll: (language:string):IRes<{genres: IGenre[] }> => axiosService.get(urls.genre.base,{params:{language}})
 }
 export {
     genreService

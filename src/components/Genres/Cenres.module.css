@@ -1,12 +1,18 @@
 .genres{
     display: flex;
-    font-size: 1.5em;
-    padding: 1.6em;
     flex-wrap: wrap;
-    gap: 0.5em;
+    gap: 1em;
     justify-content: center;
+
+    font-size: 1.6em;
+    padding: 1.6em;
+
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+
 }
 
 single_genre{
+    /*height: 10vh;*/
     flex-grow: 2;
 }

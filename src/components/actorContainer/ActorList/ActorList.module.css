@@ -1,0 +1,9 @@
+.actor_list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: space-around;
+    padding-bottom: var(--header-height);
+
+
+}

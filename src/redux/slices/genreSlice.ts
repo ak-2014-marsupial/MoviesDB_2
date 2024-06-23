@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {AsyncThunk, createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {AxiosError} from "axios";
 import {genreService} from "../../services/genreService";
 import {IGenre} from "../../interfaces";
@@ -8,26 +8,29 @@ interface IState {
     isLoading: boolean,
     errors: boolean
 };
+
 const initialState: IState = {
     genreList: [],
     isLoading: false,
     errors: false,
 };
 
-const getAll = createAsyncThunk<IGenre[], void>(
-    "genreSlice",
-    async (_, {rejectWithValue}) => {
-        console.log("from genreSlice");
-        try {
-            const {data} = await genreService.getAll();
+type IParams = Record<string, string>;
 
-            return data.genres;
-        } catch (e) {
-            const err = e as AxiosError;
-            return rejectWithValue(err.response.data)
+const getAll: AsyncThunk<IGenre[], IParams, any> =
+    createAsyncThunk<IGenre[], IParams>(
+        "genreSlice",
+        async (args: IParams, {rejectWithValue}) => {
+            const {language} = args
+            try {
+                const {data} = await genreService.getAll(language);
+                return data.genres;
+            } catch (e) {
+                const err = e as AxiosError;
+                return rejectWithValue(err.response.data)
+            }
         }
-    }
-)
+    )
 
 const genreSlice = createSlice({
     name: "genreSlice",
@@ -36,7 +39,6 @@ const genreSlice = createSlice({
     extraReducers: builder =>
         builder
             .addCase(getAll.fulfilled, (state, {payload}) => {
-                console.log(">>>>>>>",payload);
                 state.genreList = payload;
                 state.isLoading = false;
                 state.errors = false

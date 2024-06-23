@@ -1,5 +1,4 @@
 import React, {FC} from 'react';
-import {useNavigate} from 'react-router-dom';
 
 import {IMovie} from "../../../interfaces";
 
@@ -8,6 +7,7 @@ import css from "./Movie.module.css";
 import {posterBaseUrl} from "../../../constants";
 import {StarsRatingComponent} from "../../StarsRating";
 import {PosterPreview} from "../../PosterPreview";
+import {useAppNavigateWithNewParams} from "../../../hooks/useAppNavigateWithNewParams";
 
 
 interface IProps {
@@ -17,13 +17,15 @@ interface IProps {
 
 const Movie: FC<IProps> = ({movie}) => {
     const {backdrop_path, id, title, release_date, vote_average} = movie;
-    const navigate = useNavigate();
     const imgPath = backdrop_path ? `${posterBaseUrl}${backdrop_path}` : '';
-    const getInfo = () => {
-        navigate(`/movies/${id}`,{state:movie})
-    }
+
+    const {navigateWithParams}=useAppNavigateWithNewParams()
+
     return (
-        <div className={css.movie} onClick={getInfo}>
+        <div
+            className={css.movie}
+            onClick={()=>navigateWithParams(`/movies/${id}`,{"id":`${id}`},{})}
+        >
             <div className={css.img_container}>
                 <PosterPreview path={imgPath} title={title}/>
             </div>
