@@ -1,7 +1,6 @@
 {
   "name": "template-layout",
   "version": "0.1.0",
-  "homepage": "https://ak-2014-marsupial.github.io/MoviesDB_2",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
