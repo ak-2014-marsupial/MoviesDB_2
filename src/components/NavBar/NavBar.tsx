@@ -24,7 +24,6 @@ const NavBar: FC<IProps> = ({children,isOpen}) => {
         const {t} = useTranslation();
         return (
             <li className={css.nav_item}>
-                {/*<NavLink  to={goTo}>{t(title)}</NavLink>*/}
                 <LinkCustom to={goTo} title={t(title)}/>
             </li>
         )
@@ -37,7 +36,9 @@ const NavBar: FC<IProps> = ({children,isOpen}) => {
                     {navBarLinks.map(item => <LiElement key={item.goTo} {...item}/>)}
                 </ul>
             </nav>
-            {children}
+            <div className={css.children}>
+                {children}
+            </div>
 
         </div>
     );
