@@ -1,10 +1,12 @@
 import React, {FC, useEffect, useMemo, useState} from 'react';
+import {AsyncThunk} from "@reduxjs/toolkit";
+import {useLocation, useSearchParams} from "react-router-dom";
+
+
+import {useAppDispatch, useAppSelector} from "../../../hooks/reduxHooks";
 import css from "./MovieList.module.css"
 import {IMovie, IPagination} from "../../../interfaces";
-import {useAppDispatch, useAppSelector} from "../../../hooks/reduxHooks";
-import {AsyncThunk} from "@reduxjs/toolkit";
 import {Movie} from "../Movie";
-import {useLocation, useSearchParams} from "react-router-dom";
 import {Loader} from "../../Loader";
 import {ErrorPage} from "../../../pages";
 import {PaginationComponent} from "../../Pagination";
@@ -43,7 +45,6 @@ const MovieList: FC<IProps> = ({cb}) => {
 
     }, [state]);
 
-
     useEffect(() => {
         dispatch(cb({...objSearchParams}))
     }, [dispatch, cb, objSearchParams])
@@ -51,11 +52,13 @@ const MovieList: FC<IProps> = ({cb}) => {
     if (isLoading) return <Loader/>
     if (errors) return <ErrorPage/>;
 
-    console.log("MovieList>>>>");
     return (
-        <>
-             <h1>{info}</h1>
+        <div className={css.container}>
+            <div className={css.display_info}>{info}</div>
+
+
             <div className={css.movie_list}>
+                {/*<div className={css.display_info}>{info}</div>*/}
                 {results && results.map(movie =>
                     <div key={movie.id} className={css.movie_container}>
                         <Movie movie={movie}/>
@@ -68,7 +71,7 @@ const MovieList: FC<IProps> = ({cb}) => {
             <div className={css.pagination}>
                 <PaginationComponent/>
             </div>
-        </>
+        </div>
 
 
     );

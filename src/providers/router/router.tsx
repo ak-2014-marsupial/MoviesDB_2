@@ -13,7 +13,7 @@ const router = createHashRouter([
             {path: "movies", element: <MovieList cb={movieActions.getAll}/>},
             {path: "movies/:id", element: <MovieInfoPage/>},
             {path: "genres/:genreId", element: <MovieList cb={movieActions.getAllByGenreId}/>},
-            // {path: "genres/:genreId", element: <MovieList cb={movieActions.getAll}/>},
+
             {path: "genres", element: <GenresPage/>},
 
             {path: "*", element: <div>NoPage</div>}

@@ -1,9 +1,10 @@
 import {useEffect, useMemo} from "react";
-import {genreActions} from "../redux/slices";
 import { useSearchParams} from "react-router-dom";
-import {initialSearchParams} from "../constants/appConstants";
+
 import {useAppDispatch, useAppSelector} from "./reduxHooks";
 import {getObjFromQueryString} from "../utils/getSearchParamsAsObject";
+import {initialSearchParams} from "../constants/appConstants";
+import {genreActions} from "../redux/slices";
 
 const useAppGenres = () => {
     const dispatch = useAppDispatch();
@@ -15,7 +16,6 @@ const useAppGenres = () => {
     const objSearchParams: Record<string, string> = useMemo(() => getObjFromQueryString(queryString), [queryString]);
 
     useEffect(() => {
-        console.log("Fetching Genres");
         dispatch(genreActions.getAll({ ...objSearchParams }));
     }, [dispatch, objSearchParams]);
 

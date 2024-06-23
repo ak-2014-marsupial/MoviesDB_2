@@ -1,10 +1,10 @@
 import React from 'react';
-import {Genres} from "../components/Genres";
+import {GenreList} from "../components/genreContainer/GenreList";
 
 const GenresPage = () => {
     return (
         <div>
-           <Genres/>
+           <GenreList/>
         </div>
     );
 };

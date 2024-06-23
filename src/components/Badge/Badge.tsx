@@ -1,12 +1,12 @@
 import React, {ButtonHTMLAttributes, FC} from 'react';
 
-import css from "./Button.module.css"
+import css from "./Badge.module.css"
 import {classNames} from "../../utils/classNames";
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     children:React.ReactNode
 }
-const Button:FC<IProps> = ({children,className,...otherProps}) => {
+const Badge:FC<IProps> = ({children,className,...otherProps}) => {
     return (
         <button
             className={classNames(css.Button,{},[className])}
@@ -17,4 +17,4 @@ const Button:FC<IProps> = ({children,className,...otherProps}) => {
     );
 };
 
-export  {Button};
+export  {Badge};

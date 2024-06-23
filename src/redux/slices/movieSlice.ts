@@ -1,4 +1,5 @@
 import {AsyncThunk, createAsyncThunk, createSlice, isFulfilled, isPending, isRejected} from "@reduxjs/toolkit";
+
 import {IMovie, IPagination} from "../../interfaces";
 import {AxiosError} from "axios";
 import {movieService} from "../../services/movieService";
@@ -22,7 +23,6 @@ const initialState: IState = {
     errors: false,
     isLoading: false
 }
-
 
 
 const getAll: AsyncThunk<IPagination<IMovie>, IArgs, any> =

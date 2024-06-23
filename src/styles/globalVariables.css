@@ -1,7 +1,7 @@
 :root {
 
     /*size*/
-    --container-max-width:1000px;
+    --container-max-width:1400px;
     --container-min-width:400px;
     --header-height:12vh;
     --header-min-height:50px;

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useTranslation} from "react-i18next";
 
 import css from "./LangSwitcher.module.css"
-import {Button} from "../Button";
+import {Badge} from "../Badge";
 import {useAppMergeParamsWithSearchParams} from "../../hooks/useAppMergeParamsWithSearchParams";
 import {initLocale} from "../../constants/appConstants";
 import {LOCAL_STORAGE_LOCALE_KEY} from "../../constants";
@@ -34,7 +34,7 @@ const LangSwitcher = () => {
 
     return (
         <div className={css.lang_switcher}>
-            <Button onClick={handleClick} className={css.btn}>{locales[locale].title}</Button>
+            <Badge onClick={handleClick} className={css.btn}>{locales[locale].title}</Badge>
         </div>
 
 
