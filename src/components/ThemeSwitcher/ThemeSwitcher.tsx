@@ -14,7 +14,7 @@ const ThemeSwitcher: FC = () => {
     return (
         <div className={css.theme_switcher}>
             <Badge onClick={() => dispatch(themeActions.toggleTheme())}>
-                {t("themeSwitcher.theme")}
+                <div>{t("themeSwitcher.theme")}</div>
                 <div className={css.color}></div>
             </Badge>
         </div>
