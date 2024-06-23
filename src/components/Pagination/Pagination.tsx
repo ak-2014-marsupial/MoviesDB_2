@@ -1,8 +1,9 @@
 import Pagination from 'rc-pagination';
-import React, {FC, useState} from 'react';
+import React, {useState} from 'react';
 
 import 'rc-pagination/assets/index.css';
 import enUSLocale from 'rc-pagination/lib/locale/en_US';
+
 import {useAppSelector} from "../../hooks/reduxHooks";
 import {useAppMergeParamsWithSearchParams} from "../../hooks/useAppMergeParamsWithSearchParams";
 

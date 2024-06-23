@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
+
 import { ICast} from "../../../interfaces/actorInterface";
 
 import css from "./ActorListCard.module.css"
 import {PosterPreview} from "../../PosterPreview";
-import {posterBaseUrl} from "../../../constants";
 
 
 interface IProps {

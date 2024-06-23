@@ -2,9 +2,6 @@
     padding-top: 1em;
     max-width: var(--container-max-width);
     margin: 0 auto;
-
-
-
 }
 
 
@@ -25,7 +22,7 @@
     .content_container {
         padding: 0.5em;
         flex-grow: 2;
-        width: 50%;
+        max-width: 500px;
 
     }
 
