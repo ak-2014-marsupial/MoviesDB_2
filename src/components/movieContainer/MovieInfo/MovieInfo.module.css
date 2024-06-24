@@ -2,63 +2,60 @@
     padding-top: 1em;
     max-width: var(--container-max-width);
     margin: 0 auto;
+
 }
 
 
 .movie_container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
 
-    }
+}
 
-    .poster_container {
-        width: 300px;
-        max-width: 350px;
+.poster_container {
+    height: 70vh;
+    width: auto;
+    padding-top: 0.5em;
+}
 
-    }
+.content_container {
+    padding: 0.5em;
+    flex-grow: 2;
+    max-width: 500px;
+}
 
-    .content_container {
-        padding: 0.5em;
-        flex-grow: 2;
-        max-width: 500px;
+.genres {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-    }
+.title {
+    font-size: 1.8em;
+    font-weight: bold;
+    text-align: center;
+    margin: 0.5em;
+}
 
-    .genres {
-        display: flex;
-        gap: 1em;
-        flex-wrap: wrap;
-        justify-content: center;
+.rating {
+    text-align: center;
+    margin: 0.2em;
+}
 
-    }
-
-    .title {
-        font-size: 1.8em;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 0.2em;
-    }
-
-    .rating {
-        text-align: center;
-        margin: 0.2em;
-    }
-
-    .date {
-        font-size: 1.5em;
-        text-align: end;
-        padding: 1em;
-
-        /*margin: 0.2em;*/
-    }
-
-    .overview {
-        font-size: 1.4em;
-        padding: 1em;
-    }
-
-.actors{
+.date {
+    font-size: 1.5em;
+    text-align: end;
     padding: 1em;
+}
+
+.overview {
+    font-size: 1.4em;
+    padding: 1em;
+}
+
+.actors {
+    padding: 1.5em 1em;
 }

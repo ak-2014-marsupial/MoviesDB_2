@@ -1,13 +1,13 @@
 import React, {useEffect, useMemo} from 'react';
-import {useAppDispatch, useAppSelector} from "../../../hooks/reduxHooks";
 import {useSearchParams} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 
+import {useAppDispatch, useAppSelector} from "../../../hooks/reduxHooks";
 
+import {movieInfoActions} from "../../../redux/slices/movieInfoSlice";
 import css from "./MovieInfo.module.css"
 import {StarsRatingComponent} from "../../StarsRating";
 import {PosterPreview} from "../../PosterPreview";
-import {movieInfoActions} from "../../../redux/slices/movieInfoSlice";
 import {initialSearchParams} from "../../../constants/appConstants";
 import {getObjFromQueryString} from "../../../utils/getSearchParamsAsObject";
 import {Loader} from "../../Loader";
@@ -67,9 +67,7 @@ const MovieInfo = () => {
                     <div className={css.overview}>
                         {overview}
                     </div>
-
                 </div>
-
 
             </div>
             <div className={css.title}>{t("actorlist.title")}</div>

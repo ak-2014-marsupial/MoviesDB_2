@@ -1,5 +1,5 @@
 import React from 'react';
-import {MovieInfo} from "../components/movieContainer/MovieInfo";
+import {MovieInfo} from "../components";
 
 
 const MovieInfoPage = () => {
@@ -8,7 +8,6 @@ const MovieInfoPage = () => {
     return (
         <>
             <MovieInfo/>
-
         </>
     );
 };

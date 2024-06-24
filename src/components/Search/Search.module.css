@@ -1,22 +1,19 @@
 .search {
-    /*position: absolute;*/
-    /*top:0;*/
-    /*right:50%;*/
-
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: center;
     height: auto;
     gap: 0.2em;
 
+    padding-top: 0.2em;
 }
 
 
 .search_btn {
     position: absolute;
-    top:1vh;
-    right:calc(var(--navbar-children-width) + 20px);
-font-size: 2em;
+    top: 1vh;
+    right: calc(var(--navbar-children-width) + 20px);
+    font-size: 2em;
 
     padding: 0.2em;
     background-color: var(--background-inverted);
@@ -24,43 +21,45 @@ font-size: 2em;
     border-radius: 0.5em;
     transition: all ease 500ms;
 }
-.search_btn:hover{
-    box-shadow: 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover),  0 0 10px var(--accent-hover) ;
+
+.search_btn:hover {
+    box-shadow: 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover);
     transform: scale(0.92);
     transition: all ease 300ms;
     background-color: var(--background-inverted);
     opacity: 0.8;
 }
 
-/*=======================================*/
-.input{
+.input {
     width: 100%;
     font-size: 1.2em;
     line-height: 2.4em;
     height: 0;
 }
-.input_visible{
+
+.input_visible {
     height: auto;
 }
 
-.search input:hover{
-    box-shadow: 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover),  0 0 10px var(--accent-hover) ;
+.search input:hover {
+    box-shadow: 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover);
     border: 1px solid var(--accent);
     transition: all ease 300ms;
     background-color: var(--background-inverted);
     opacity: 1;
 }
 
-::placeholder{
-    color:var(--text-secondary)
+::placeholder {
+    color: var(--text-secondary)
 }
 
 @media (max-width: 550px) {
-.search_btn{
-    position: static;
-    font-size: 1.4em;
-}
-    .input{
+    .search_btn {
+        position: static;
+        font-size: 1.4em;
+    }
+
+    .input {
         height: calc(var(--header-height) - 2vh);
         border: 1px solid var(--border);
         font-size: 1em;
@@ -69,7 +68,6 @@ font-size: 2em;
         color: var(--text-secondary);
         padding-left: 0.2em;
         transition: all ease 300ms;
-
         width: auto;
     }
 }
