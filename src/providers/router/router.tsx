@@ -11,6 +11,7 @@ const router = createHashRouter([
         path: "/", element: <MainLayout/>, children: [
             {index: true, element: <Navigate to={'movies'}/>},
             {path: "movies", element: <MovieList cb={movieActions.getAll}/>},
+            {path: "movies/search", element: <MovieList cb={movieActions.searchByName}/>},
             {path: "movies/:id", element: <MovieInfoPage/>},
             {path: "genres/:genreId", element: <MovieList cb={movieActions.getAllByGenreId}/>},
 

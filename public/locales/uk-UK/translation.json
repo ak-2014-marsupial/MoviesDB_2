@@ -19,5 +19,9 @@
   },
   "actorlist": {
     "title": "Список акторів"
+  },
+  "search": {
+    "placeholder": "Пошук за назвою"
   }
+
 }

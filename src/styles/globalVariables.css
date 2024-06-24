@@ -3,6 +3,7 @@
     /*size*/
     --container-max-width:1400px;
     --container-min-width:400px;
+    --navbar-children-width:180px ;
     --header-height:12vh;
     --header-min-height:50px;
     --mobile-width:500px;

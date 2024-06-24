@@ -12,7 +12,7 @@ const LinkCustom: FC<IProps> = ({to, title}) => {
 
     return (
         <button className={css.link_custom}
-            onClick={() => navigateWithParams(to, {}, {})}>{title}
+            onClick={() => navigateWithParams(to, {"page":"1"}, {"display_info":"1"})}>{title}
         </button>
     );
 };

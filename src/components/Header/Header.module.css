@@ -1,5 +1,4 @@
 .header {
-    /*display: flex;*/
     position: fixed;
     left: 0;
     top: 0;
@@ -8,7 +7,7 @@
     min-height: var(--header-min-height);
     box-shadow: 0 4px 4px -4px var(--text-primary);
     color: var(--text-primary);
-    padding: 0.5em;
+    padding-left: calc(2vw + 40px);
     gap: 0.2em;
 
 z-index: 5;
@@ -16,6 +15,18 @@ z-index: 5;
 
 .burger{
     display: none;
+}
+
+.shevron{
+    border: 1px solid red;
+    color:red;
+    height: calc(var(--header-height) - 2vh);
+    width: 40px;
+    background: var(--background-inverted);
+
+    position: absolute;
+    top: 1vh;
+    left: 1vw;
 }
 
 @media (max-width: 550px) {

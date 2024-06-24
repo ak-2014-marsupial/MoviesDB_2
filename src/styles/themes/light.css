@@ -1,6 +1,7 @@
 .app_light_theme {
     --background: #E3F2C1;
-    --background-inverted:#F3A950 ;
+    /*--background-inverted:#F3A950 ;*/
+    --background-inverted:#FFE67C ;
     --text-primary: #0F2103;
     --text-secondary: #183605;
     --accent: #F6FFDE;

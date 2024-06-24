@@ -2,7 +2,6 @@ import React, {FC, useEffect, useMemo, useState} from 'react';
 import {AsyncThunk} from "@reduxjs/toolkit";
 import {useLocation, useSearchParams} from "react-router-dom";
 
-
 import {useAppDispatch, useAppSelector} from "../../../hooks/reduxHooks";
 import css from "./MovieList.module.css"
 import {IMovie, IPagination} from "../../../interfaces";
@@ -25,24 +24,22 @@ export interface IArgs {
     language?: string,
 }
 
+// todo implement enum IArgs<enum,string>
 const MovieList: FC<IProps> = ({cb}) => {
-    const {movieList: {results}, isLoading, errors} = useAppSelector(state => state.movies);
     const dispatch = useAppDispatch();
     const {state} = useLocation();
-
-    const [info, setInfo] = useState<string>("")
-
+    const [info, setInfo] = useState<string | null>(null)
     const [searchParams] = useSearchParams(initialSearchParams);
     const queryString = searchParams.toString()
+    const {movieList: {results}, isLoading, errors} = useAppSelector(state => state.movies);
 
     const objSearchParams: Record<string, string> = useMemo(
         () => getObjFromQueryString(queryString), [queryString]
     )
     useEffect(() => {
-        if(state){
+        if (state) {
             setInfo(state["display_info"])
         }
-
     }, [state]);
 
     useEffect(() => {
@@ -54,11 +51,9 @@ const MovieList: FC<IProps> = ({cb}) => {
 
     return (
         <div className={css.container}>
-            <div className={css.display_info}>{info}</div>
-
+            {info && <div className={css.display_info}>{info}</div>}
 
             <div className={css.movie_list}>
-                {/*<div className={css.display_info}>{info}</div>*/}
                 {results && results.map(movie =>
                     <div key={movie.id} className={css.movie_container}>
                         <Movie movie={movie}/>
@@ -72,8 +67,6 @@ const MovieList: FC<IProps> = ({cb}) => {
                 <PaginationComponent/>
             </div>
         </div>
-
-
     );
 };
 

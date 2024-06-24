@@ -18,5 +18,8 @@
   },
   "actorlist": {
     "title": "Actor List"
+  },
+  "search": {
+    "placeholder": "Search by name"
   }
 }
