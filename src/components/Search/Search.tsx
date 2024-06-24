@@ -1,6 +1,5 @@
 import React, {useRef, useState} from 'react';
 
-import icon from "../../assets/images/search_find.png"
 import css from "./Search.module.css"
 import {useTranslation} from "react-i18next";
 import {useAppNavigateWithNewParams} from "../../hooks/useAppNavigateWithNewParams";
