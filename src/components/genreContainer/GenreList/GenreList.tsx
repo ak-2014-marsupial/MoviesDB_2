@@ -5,6 +5,7 @@ import {useAppGenres} from "../../../hooks/useAppGenres";
 import {useAppNavigateWithNewParams} from "../../../hooks/useAppNavigateWithNewParams";
 import {IGenre} from "../../../interfaces";
 import {GenreListCard} from "../GenreListCard";
+import {KeyArgs} from "../../../constants/appConstants";
 
 const GenreList = () => {
 
@@ -12,7 +13,15 @@ const GenreList = () => {
     const {navigateWithParams} = useAppNavigateWithNewParams()
 
     const cb = (genre: IGenre) => {
-        navigateWithParams(`${genre.id}`, {"with_genres": `${genre.id}`}, {state: {"display_info": `${genre.name}`}})
+        navigateWithParams("/movies/genre",
+            {
+                [KeyArgs.ID]: "",
+                [KeyArgs.PAGE]: "1",
+                [KeyArgs.WITH_GENRES]: `${genre.id}`,
+                [KeyArgs.QUERY]: "",
+                [KeyArgs.FILTER]: "",
+            },
+            {state: {"display_info": `${genre.name}`}})
     }
     return (
         <div className={css.genres}>

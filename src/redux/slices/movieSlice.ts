@@ -29,7 +29,7 @@ const getAll: AsyncThunk<IPagination<IMovie>, IArgs, any> =
     createAsyncThunk<IPagination<IMovie>, IArgs>(
         "movieSlice/getAll",
         async (args, {rejectWithValue}) => {
-            const {page, language } = args
+            const {page, language} = args
             try {
                 const {data} = await movieService.getAll(page, language);
                 return data;
@@ -45,7 +45,7 @@ const getById: AsyncThunk<IMovie, { id: string, args: IArgs }, any> =
     createAsyncThunk<IMovie, { id: string, args: IArgs }>(
         "movieSlice/getById",
         async ({id, args}, {rejectWithValue}) => {
-            const {language = "uk-UK"} = args;
+            const {language} = args;
             try {
                 const {data} = await movieService.getById(id, language);
                 return data;
@@ -61,7 +61,7 @@ const searchByName: AsyncThunk<IPagination<IMovie>, IArgs, any> =
     createAsyncThunk<IPagination<IMovie>, IArgs>(
         "movieSlice/searchByName",
         async (args, {rejectWithValue}) => {
-            const {page, language = "uk-UK", query} = args
+            const {page, language, query} = args
             try {
                 const {data} = await movieService.searchByName(page, query, language);
                 return data;
@@ -72,14 +72,14 @@ const searchByName: AsyncThunk<IPagination<IMovie>, IArgs, any> =
         }
     )
 
-const getAllByGenreId: AsyncThunk<IPagination<IMovie>,  IArgs , any> =
-    createAsyncThunk<IPagination<IMovie>,   IArgs >(
+const getAllByGenreId: AsyncThunk<IPagination<IMovie>, IArgs, any> =
+    createAsyncThunk<IPagination<IMovie>, IArgs>(
         "movieSlice/getAllByGenreId",
         async (args, {rejectWithValue}) => {
-            const {page="1", language = "uk-UK",with_genres} = args;
+            const {page = "1", language, with_genres} = args;
 
             try {
-                const {data} = await movieService.getByGenreId(page, with_genres,language);
+                const {data} = await movieService.getByGenreId(page, with_genres, language);
                 return data;
             } catch (e) {
                 const err = e as AxiosError;

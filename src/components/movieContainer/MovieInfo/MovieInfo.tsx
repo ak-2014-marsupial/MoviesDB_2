@@ -43,7 +43,7 @@ const MovieInfo = () => {
     const {poster_path, title, genres, release_date, vote_average, overview} = singleMovie;
 
     const cb = (genre: IGenre) => {
-        navigateWithParams(`/genres/${genre.id}`,
+        navigateWithParams(`/movies/genre`,
             {
                 [KeyArgs.ID]: "",
                 [KeyArgs.PAGE]: "1",

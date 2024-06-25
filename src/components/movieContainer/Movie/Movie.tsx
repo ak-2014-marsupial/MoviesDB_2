@@ -23,7 +23,7 @@ const Movie: FC<IProps> = ({movie}) => {
     const {navigateWithParams} = useAppNavigateWithNewParams();
 
     const handleClick = () => {
-        navigateWithParams(`/movies/${id}`,
+        navigateWithParams(`/movies/single`,
             {
                 [KeyArgs.ID]: `${id}`,
                 [KeyArgs.PAGE]: "",

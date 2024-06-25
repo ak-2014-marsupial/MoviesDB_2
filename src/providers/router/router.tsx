@@ -12,8 +12,9 @@ const router = createHashRouter([
             {index: true, element: <Navigate to={'movies'}/>},
             {path: "movies", element: <MovieList cb={movieActions.getAll}/>},
             {path: "movies/search", element: <MovieList cb={movieActions.searchByName}/>},
-            {path: "movies/:id", element: <MovieInfoPage/>},
+            {path: "movies/single", element: <MovieInfoPage/>},
             {path: "genres/:genreId", element: <MovieList cb={movieActions.getAllByGenreId}/>},
+            {path: "movies/genre", element: <MovieList cb={movieActions.getAllByGenreId}/>},
 
             {path: "genres", element: <GenresPage/>},
 
