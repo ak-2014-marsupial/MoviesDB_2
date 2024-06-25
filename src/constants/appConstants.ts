@@ -9,3 +9,11 @@ export const initialSearchParams = {
     language: initLocale
 }
 
+export enum KeyArgs{
+    PAGE="page",
+    QUERY="query",
+    FILTER="filter",
+    WITH_GENRES="with_genres",
+    LANGUAGE="language",
+}
+

@@ -16,6 +16,8 @@ interface IProps {
     cb: AsyncThunk<IPagination<IMovie>, any, any>
 }
 
+
+
 export interface IArgs {
     page?: string,
     query?: string,
