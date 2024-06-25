@@ -1,4 +1,6 @@
-.lang_switcher {
-    color: var(--text-secondary)
+.badge{
+    color: var(--text-secondary);
+    height: auto    ;
+    padding: 0.5em 0;
 }
 

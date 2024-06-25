@@ -1,18 +1,19 @@
 .Button {
-    /*border: none;*/
     border: 1px solid var(--border);
     color: var(--text-secondary);
     background-color: var(--background-inverted);
     border-radius: 0.4em;
-    /*min-width: 10%;*/
     text-align: center;
     font-size: 1.2em;
     /*padding: 0.2em;*/
     margin-bottom: 0.5em;
     cursor: pointer;
+    transition: all ease 500ms;
 }
 
 .Button:hover {
     box-shadow: 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover), 0 0 10px var(--accent-hover);
-
+    transform: scale(0.92);
+    transition: all ease 300ms;
+    background-color: var(--accent-hover);
 }

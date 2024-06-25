@@ -18,9 +18,9 @@ z-index: 5;
 }
 
 .shevron{
-    border: 1px solid red;
-    color:red;
-    height: calc(var(--header-height) - 2vh);
+    /*border: 1px solid red;*/
+    /*color:red;*/
+    height: calc(var(--header-height) - 3vh);
     width: 40px;
     background: var(--background-inverted);
 

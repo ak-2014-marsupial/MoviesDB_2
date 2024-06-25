@@ -33,7 +33,7 @@ const LangSwitcher = () => {
 
     return (
         <div className={css.lang_switcher}>
-            <Badge onClick={handleClick} className={css.btn}>{locales[locale].title}</Badge>
+            <Badge onClick={handleClick} className={css.badge}>{locales[locale].title}</Badge>
         </div>
 
 
