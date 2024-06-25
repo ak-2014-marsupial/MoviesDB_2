@@ -8,7 +8,7 @@ import {movieInfoActions} from "../../../redux/slices/movieInfoSlice";
 import css from "./MovieInfo.module.css"
 import {StarsRatingComponent} from "../../StarsRating";
 import {PosterPreview} from "../../PosterPreview";
-import {initialSearchParams} from "../../../constants/appConstants";
+import {IArgs, initialSearchParams} from "../../../constants/appConstants";
 import {getObjFromQueryString} from "../../../utils/getSearchParamsAsObject";
 import {Loader} from "../../Loader";
 import {ErrorPage} from "../../../pages";
@@ -22,7 +22,7 @@ const MovieInfo = () => {
 
     const [searchParams] = useSearchParams(initialSearchParams);
     const queryString = useMemo(() => searchParams.toString(), [searchParams]);
-    const objSearchParams: Record<string, string> = useMemo(
+    const objSearchParams: IArgs = useMemo(
         () => getObjFromQueryString(queryString), [queryString]
     )
     const {t} = useTranslation()

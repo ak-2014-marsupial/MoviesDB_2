@@ -10,7 +10,7 @@ import {Loader} from "../../Loader";
 import {ErrorPage} from "../../../pages";
 import {PaginationComponent} from "../../Pagination";
 import {getObjFromQueryString} from "../../../utils/getSearchParamsAsObject";
-import {initialSearchParams} from "../../../constants/appConstants";
+import {IArgs, initialSearchParams} from "../../../constants/appConstants";
 
 interface IProps {
     cb: AsyncThunk<IPagination<IMovie>, any, any>
@@ -18,15 +18,8 @@ interface IProps {
 
 
 
-export interface IArgs {
-    page?: string,
-    query?: string,
-    filter?: string,
-    with_genres?: string,
-    language?: string,
-}
 
-// todo implement enum IArgs<enum,string>
+
 const MovieList: FC<IProps> = ({cb}) => {
     const dispatch = useAppDispatch();
     const {state} = useLocation();
@@ -35,7 +28,7 @@ const MovieList: FC<IProps> = ({cb}) => {
     const queryString = searchParams.toString()
     const {movieList: {results}, isLoading, errors} = useAppSelector(state => state.movies);
 
-    const objSearchParams: Record<string, string> = useMemo(
+    const objSearchParams: IArgs = useMemo(
         () => getObjFromQueryString(queryString), [queryString]
     )
     useEffect(() => {

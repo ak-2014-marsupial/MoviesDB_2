@@ -3,7 +3,7 @@ import {AsyncThunk, createAsyncThunk, createSlice, isFulfilled, isPending, isRej
 import {IMovie, IPagination} from "../../interfaces";
 import {AxiosError} from "axios";
 import {movieService} from "../../services/movieService";
-import {IArgs} from "../../components/movieContainer";
+import {IArgs} from "../../constants/appConstants";
 
 interface IState {
     singleMovie: IMovie | null,
@@ -29,7 +29,7 @@ const getAll: AsyncThunk<IPagination<IMovie>, IArgs, any> =
     createAsyncThunk<IPagination<IMovie>, IArgs>(
         "movieSlice/getAll",
         async (args, {rejectWithValue}) => {
-            const {page, language = "uk-UK"} = args
+            const {page, language } = args
             try {
                 const {data} = await movieService.getAll(page, language);
                 return data;

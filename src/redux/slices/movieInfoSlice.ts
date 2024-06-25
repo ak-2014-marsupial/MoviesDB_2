@@ -1,9 +1,9 @@
 import {IMovie} from "../../interfaces";
 import {IActor, ICast} from "../../interfaces/actorInterface";
 import {AsyncThunk, createAsyncThunk, createSlice, isRejected} from "@reduxjs/toolkit";
-import {IArgs} from "../../components/movieContainer";
 import {movieService} from "../../services/movieService";
 import {AxiosError} from "axios";
+import {IArgs} from "../../constants/appConstants";
 
 interface IState {
     singleMovie: IMovie | null,

@@ -1,5 +1,6 @@
+import {KeyArgs} from "../constants/appConstants";
 
-export const getObjFromQueryString = (queryString: string): Record<string, string> => {
+export const getObjFromQueryString = (queryString: string): Record<KeyArgs, string> => {
     const objResult = {} as Record<string, string>;
     const params = new URLSearchParams(queryString);
     // @ts-ignore
@@ -10,7 +11,7 @@ export const getObjFromQueryString = (queryString: string): Record<string, strin
     return objResult
 }
 
-export const mergeSearchParams = (newParams: Record<string, string>, queryString: string): string => {
+export const mergeSearchParams = (newParams: Record<KeyArgs, string>, queryString: string): string => {
     const params = getObjFromQueryString(queryString)
     const obj = {...params, ...newParams}
     // @ts-ignore
