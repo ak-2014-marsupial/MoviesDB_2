@@ -16,8 +16,6 @@ interface ILiElementProps {
     title: string
 }
 
-
-
 const NavBar: FC<IProps> = ({children,isOpen}) => {
 
     const LiElement: FC<ILiElementProps> = ({goTo, title}) => {

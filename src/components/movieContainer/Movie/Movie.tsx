@@ -8,6 +8,7 @@ import {posterBaseUrl} from "../../../constants";
 import {StarsRatingComponent} from "../../StarsRating";
 import {PosterPreview} from "../../PosterPreview";
 import {useAppNavigateWithNewParams} from "../../../hooks/useAppNavigateWithNewParams";
+import {KeyArgs} from "../../../constants/appConstants";
 
 
 interface IProps {
@@ -19,12 +20,24 @@ const Movie: FC<IProps> = ({movie}) => {
     const {backdrop_path, id, title, release_date, vote_average} = movie;
     const imgPath = backdrop_path ? `${posterBaseUrl}${backdrop_path}` : '';
 
-    const {navigateWithParams}=useAppNavigateWithNewParams()
+    const {navigateWithParams} = useAppNavigateWithNewParams();
+
+    const handleClick = () => {
+        navigateWithParams(`/movies/${id}`,
+            {
+                [KeyArgs.ID]: `${id}`,
+                [KeyArgs.PAGE]: "",
+                [KeyArgs.WITH_GENRES]: "",
+                [KeyArgs.QUERY]: "",
+                [KeyArgs.FILTER]: "",
+            },
+            {})
+    }
 
     return (
         <div
             className={css.movie}
-            onClick={()=>navigateWithParams(`/movies/${id}`,{"id":`${id}`},{})}
+            onClick={handleClick}
         >
             <div className={css.img_container}>
                 <PosterPreview path={imgPath} title={title}/>

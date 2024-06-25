@@ -8,7 +8,7 @@ import {movieInfoActions} from "../../../redux/slices/movieInfoSlice";
 import css from "./MovieInfo.module.css"
 import {StarsRatingComponent} from "../../StarsRating";
 import {PosterPreview} from "../../PosterPreview";
-import {IArgs, initialSearchParams} from "../../../constants/appConstants";
+import {IArgs, initialSearchParams, KeyArgs} from "../../../constants/appConstants";
 import {getObjFromQueryString} from "../../../utils/getSearchParamsAsObject";
 import {Loader} from "../../Loader";
 import {ErrorPage} from "../../../pages";
@@ -40,10 +40,18 @@ const MovieInfo = () => {
     if (!singleMovie) return <Loader/>;
     if (isMovieLoading) return <Loader/>;
     if (errors) return <ErrorPage/>;
-    const {poster_path, title,genres, release_date, vote_average, overview} = singleMovie;
+    const {poster_path, title, genres, release_date, vote_average, overview} = singleMovie;
 
-    const cb = (genre:IGenre) => {
-        navigateWithParams(`/genres/${genre.id}`, {"with_genres": `${genre.id}`,"page":"1"}, {state: {"display_info": `${genre.name}`}})
+    const cb = (genre: IGenre) => {
+        navigateWithParams(`/genres/${genre.id}`,
+            {
+                [KeyArgs.ID]: "",
+                [KeyArgs.PAGE]: "1",
+                [KeyArgs.WITH_GENRES]: `${genre.id}`,
+                [KeyArgs.QUERY]: "",
+                [KeyArgs.FILTER]: "",
+            },
+            {state: {"display_info": `${genre.name}`}})
     }
 
     return (

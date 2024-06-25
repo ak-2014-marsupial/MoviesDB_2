@@ -5,6 +5,7 @@ import {useTranslation} from "react-i18next";
 import {useAppNavigateWithNewParams} from "../../hooks/useAppNavigateWithNewParams";
 import {ImSearch} from "react-icons/im";
 import {Badge} from "../Badge";
+import {KeyArgs} from "../../constants/appConstants";
 
 
 const Search = () => {
@@ -12,7 +13,7 @@ const Search = () => {
     const [query, setQuery] = useState<string>("")
     const [isInputVisible, setIsInputVisible] = useState<boolean>(false)
 
-    const inputRef=useRef(null);
+    const inputRef = useRef(null);
 
     const onKeyPressHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.charCode === 13) {
@@ -30,7 +31,13 @@ const Search = () => {
         inputRef.current.setSelectionRange(0, 0)
         if (query.trim().length > 3) {
             navigateWithParams(`/movies/search?`,
-                {"query": `${query}`,"page":"1"},
+                {
+                    [KeyArgs.ID]: "",
+                    [KeyArgs.PAGE]: "1",
+                    [KeyArgs.WITH_GENRES]: "",
+                    [KeyArgs.QUERY]: `${query}`,
+                    [KeyArgs.FILTER]: "",
+                },
                 {state: {"display_info": `${t("search.placeholder")}: ${query}`}})
         }
         setIsInputVisible((prev) => !prev);
@@ -50,7 +57,7 @@ const Search = () => {
             />
 
             <Badge className={css.search_btn}
-                onClick={handleClick}>
+                   onClick={handleClick}>
                 <ImSearch/>
             </Badge>
         </div>

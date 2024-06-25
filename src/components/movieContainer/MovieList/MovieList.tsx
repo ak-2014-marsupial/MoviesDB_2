@@ -16,10 +16,6 @@ interface IProps {
     cb: AsyncThunk<IPagination<IMovie>, any, any>
 }
 
-
-
-
-
 const MovieList: FC<IProps> = ({cb}) => {
     const dispatch = useAppDispatch();
     const {state} = useLocation();

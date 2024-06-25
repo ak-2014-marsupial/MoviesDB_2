@@ -16,7 +16,6 @@ const locales: Record<string, { value: string, title: string, next: string }> = 
 
 const LangSwitcher = () => {
     const {mergeParamsWithSearchParams} = useAppMergeParamsWithSearchParams();
-    // const initLocale = localStorage.getItem("locale") || "uk-UK";
     const [locale, setLocale] = useState(initLocale);
     const {i18n} = useTranslation();
 

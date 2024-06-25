@@ -10,7 +10,7 @@ const useAppNavigateWithNewParams = () => {
     const navigateWithParams =
 
         (to: string, params : Record<string, string | null>,state:IState):void => {
-            // todo implement enum Record<enum, string |null>
+            // todo params must be IArgs
             const newQueryString = mergeSearchParams(params, searchParams.toString());
             navigate(`${to}${newQueryString}`,state)
     }
