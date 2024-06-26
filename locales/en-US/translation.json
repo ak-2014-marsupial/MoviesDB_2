@@ -1,0 +1,25 @@
+{
+  "header": {
+    "movies": "Movies",
+    "genres": "Genres",
+    "search": "Search"
+  },
+  "themeSwitcher": {
+    "theme": "Theme"
+  },
+  "errorPage": {
+    "sorry": "Sorry, an unexpected error has occurred.",
+    "oops": "Oops!"
+  },
+  "lang": "Language",
+  "user": "Dummy",
+  "noPage": {
+    "toMain": "go to Main page"
+  },
+  "actorlist": {
+    "title": "Actor List"
+  },
+  "search": {
+    "placeholder": "Search by name"
+  }
+}

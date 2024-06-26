@@ -1,0 +1,27 @@
+{
+
+  "header": {
+    "movies": "Фільми",
+    "genres": "Жанри",
+    "search": "Пошук"
+  },
+  "themeSwitcher":{
+    "theme": "Тема"
+  },
+  "errorPage": {
+    "sorry": "Вибачте, сталася неочікувана помилка.",
+    "oops": "Йой!"
+  },
+  "lang": "Мова",
+  "user": "Дурник",
+  "noPage":{
+    "toMain": "На Головну сторінку"
+  },
+  "actorlist": {
+    "title": "Список акторів"
+  },
+  "search": {
+    "placeholder": "Пошук за назвою"
+  }
+
+}
