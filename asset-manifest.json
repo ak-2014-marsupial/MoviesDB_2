@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/MoviesDB_2/static/css/main.ff7d8f2e.css",
-    "main.js": "/MoviesDB_2/static/js/main.c465c7a8.js",
+    "main.css": "/MoviesDB_2/static/css/main.56ed3c6f.css",
+    "main.js": "/MoviesDB_2/static/js/main.81ebe836.js",
     "static/media/somethinWentWrong.png": "/MoviesDB_2/static/media/somethinWentWrong.ff6fb4bedb4b762180dc.png",
     "static/media/notFound.png": "/MoviesDB_2/static/media/notFound.4275555fdc288de97838.png",
     "static/media/astronautpissing.png": "/MoviesDB_2/static/media/astronautpissing.27b0638fa81088ae46dc.png",
     "index.html": "/MoviesDB_2/index.html",
-    "main.ff7d8f2e.css.map": "/MoviesDB_2/static/css/main.ff7d8f2e.css.map",
-    "main.c465c7a8.js.map": "/MoviesDB_2/static/js/main.c465c7a8.js.map"
+    "main.56ed3c6f.css.map": "/MoviesDB_2/static/css/main.56ed3c6f.css.map",
+    "main.81ebe836.js.map": "/MoviesDB_2/static/js/main.81ebe836.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff7d8f2e.css",
-    "static/js/main.c465c7a8.js"
+    "static/css/main.56ed3c6f.css",
+    "static/js/main.81ebe836.js"
   ]
 }
